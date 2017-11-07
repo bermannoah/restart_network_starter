@@ -9,7 +9,7 @@ Dotenv.load
 # Documentation for the twitter gem we're using can be found here:
 # http://www.rubydoc.info/gems/twitter
 
-# Loads all the keys needed to access twitter's API, then creates a client 
+# Loads all the keys needed to access twitter's API, then creates a client
 # that you can use to post, delete, reply, etc.
 client = Twitter::REST::Client.new do |config|
   config.consumer_key        = ENV['TWITTER_CONSUMER_KEY']
@@ -18,5 +18,9 @@ client = Twitter::REST::Client.new do |config|
   config.access_token_secret = ENV['TWITTER_ACCESS_TOKEN_SECRET']
 end
 
-# This posts to your twitter account!
-client.update("")
+message = "Testing, testing"
+
+puts "Sending tweet: #{message}"
+
+# This posts the string you have in the message variable to your twitter account!
+client.update(message)
